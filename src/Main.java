@@ -31,7 +31,11 @@ public class Main {
             System.out.println("Erreur! Veuillez proposer une séquence à 5 CHIFFRES ENTRE 1 ET 9:");
             sequenceDevinee = clavier.nextLine();
         }
+        if (sequenceDevinee.equals(sequenceChiffres)) {
+            System.out.println("Félicitations Joueur2! Vous avez deviné la séquence de chiffres qui était: " + sequenceChiffres);
+            break;
 
+        }else{
         int bienPlaces=0;
         int malPlaces=0;
 
@@ -60,7 +64,16 @@ public class Main {
             }
         }
         System.out.println("Résultat: il y a "+bienPlaces+" chiffre(s) de bien placé(s) | "+malPlaces+" chiffre(s) de mal placé(s)");
+
+
+    if (i == propositions-1) {
+        System.out.println("Désolé, vous avez épuisé toutes vos tentatives! La séquence de chiffres était: "+sequenceChiffres+".");
     }
+
+    }
+    }
+
+
     }
 
 
