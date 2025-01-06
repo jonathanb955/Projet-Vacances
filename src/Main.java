@@ -31,6 +31,35 @@ public class Main {
             System.out.println("Erreur! Veuillez proposer une séquence à 5 CHIFFRES ENTRE 1 ET 9:");
             sequenceDevinee = clavier.nextLine();
         }
+
+        int bienPlaces=0;
+        int malPlaces=0;
+
+        boolean[] sequenceChiffresUtlises = new boolean[5];
+        boolean[] sequenceDevineesUtilises = new boolean[5];
+
+        for (int j=0; j<5; j++) {
+            if (sequenceDevinee.charAt(j) == sequenceChiffres.charAt(j)) {
+                bienPlaces++;
+                sequenceChiffresUtlises[j] = true;
+                sequenceDevineesUtilises[j] = true;
+
+            }
+        }
+
+        for (int j=0; j<5; j++) {
+            if (!sequenceDevineesUtilises[j]) {
+            for (int k=0; k<5; k++) {
+                if (!sequenceChiffresUtlises[k]  && sequenceDevinee.charAt(j) == sequenceChiffres.charAt(k)) {
+                    malPlaces++;
+                    sequenceChiffresUtlises[k] = true;
+                    break;
+
+                }
+            }
+            }
+        }
+        System.out.println("Résultat: il y a "+bienPlaces+" chiffre(s) de bien placé(s) | "+malPlaces+" chiffre(s) de mal placé(s)");
     }
     }
 
